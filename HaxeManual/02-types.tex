@@ -717,7 +717,7 @@ As mentioned before, abstracts are a compile-time feature, so it is interesting 
 var a = 12;
 console.log(a);
 \end{lstlisting}
-The abstract type \type{Abstract} completely disappeared from the output and all that is left is a value of its underlying type, \type{Int}. This is because the constructor of \type{Abstract} is inlined - something we shall learn about later in the section \Fullref{class-field-inline} - and its inlined expression assigns a value to \expr{this}. This might be surprising when thinking in terms of classes. However, it is precisely what we want to express in the context of abstracts. Any \emph{inlined member method} of an abstract can assign to \expr{this}, and thus modify the ``internal value''.
+The abstract type \type{AbstractInt} completely disappeared from the output and all that is left is a value of its underlying type, \type{Int}. This is because the constructor of \type{AbstractInt} is inlined - something we shall learn about later in the section \Fullref{class-field-inline} - and its inlined expression assigns a value to \expr{this}. This might be surprising when thinking in terms of classes. However, it is precisely what we want to express in the context of abstracts. Any \emph{inlined member method} of an abstract can assign to \expr{this}, and thus modify the ``internal value''.
 
 
 A good question at this point is ``What happens if a member function is not declared inline'' because the code obviously has to go somewhere. Haxe creates a private class, known to be the \emph{implementation class}, which has all the abstract member functions as static functions accepting an additional first argument \expr{this} of the underlying type.
